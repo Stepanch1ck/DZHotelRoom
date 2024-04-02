@@ -3,12 +3,14 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
+using NLog;
 
 namespace DZHotelRoom
 {
     public partial class HotelForm : Form
     {
         HotelRoomContext db = new HotelRoomContext();
+        public int? idRoom = null;
 
         public HotelForm()
         {
@@ -33,21 +35,24 @@ namespace DZHotelRoom
 
             if (!string.IsNullOrEmpty(searchName))
             {
-                string[] nameParts = searchName.Split(' ');
-                string firstName = nameParts.Length > 0 ? nameParts[0] : null;
-                string lastName = nameParts.Length > 1 ? nameParts[1] : null;
-                string middleName = nameParts.Length > 2 ? nameParts[2] : null;
-
-                // Filter rooms based on the search criteria
+                string[] nameParts = searchName.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 var filteredRooms = db.Rooms
                     .Where(r => r.PersonNavigation != null &&
-                                (r.PersonNavigation.FirstName == firstName ||
-                                 r.PersonNavigation.LastName == lastName ||
-                                 (middleName != null && r.PersonNavigation.Surname == middleName)))
-                    .ToList();
+                                 (
+                                     r.PersonNavigation.FirstName.Contains(nameParts[0]) ||
+                                     r.PersonNavigation.LastName.Contains(nameParts[0]) ||
+                                     r.PersonNavigation.Surname.Contains(nameParts[0])
+                                )
+                             );
+                for (int i = 2; i < nameParts.Length; i++)
+                {
+                    filteredRooms = filteredRooms.Where(r =>
+                        r.PersonNavigation.FirstName.Contains(nameParts[i]) ||
+                        r.PersonNavigation.LastName.Contains(nameParts[i]) ||
+                        r.PersonNavigation.Surname.Contains(nameParts[i]));
+                }
 
-                MainDataGridView.DataSource = filteredRooms;
-
+                MainDataGridView.DataSource = filteredRooms.ToList();
                 MainDataGridView.Refresh();
             }
             else
@@ -69,6 +74,7 @@ namespace DZHotelRoom
             var rooms = db.Rooms.ToList();
 
             MainDataGridView.DataSource = rooms;
+            MainDataGridView.Refresh();
 
         }
         private void LoadAllRoomsIntoDataGridView()
@@ -77,6 +83,7 @@ namespace DZHotelRoom
             var allRooms = db.Rooms.ToList();
 
             MainDataGridView.DataSource = allRooms;
+            MainDataGridView.Refresh();
 
         }
 
@@ -169,12 +176,12 @@ namespace DZHotelRoom
         {
             if (e.RowIndex >= 0)
             {
-                int roomId = (int)MainDataGridView.Rows[e.RowIndex].Cells["IdRoom"].Value;
-                var selectedRoom = db.Rooms.Include(r => r.PersonNavigation).FirstOrDefault(r => r.IdRoom == roomId);
+                idRoom = (int)MainDataGridView.Rows[e.RowIndex].Cells["IdRoom"].Value;
+                var selectedRoom = db.Rooms.Include(r => r.PersonNavigation).FirstOrDefault(r => r.IdRoom == idRoom);
 
                 if (selectedRoom != null)
                 {
-                    NumberLabel.Text = roomId.ToString();
+                    NumberLabel.Text = idRoom.ToString();
                     string fullName = $"{selectedRoom.PersonNavigation?.LastName} {selectedRoom.PersonNavigation?.FirstName} {selectedRoom.PersonNavigation?.Surname}";
                     StatusPersonLabel.Text = selectedRoom.Status;
                     FIOPersonLabel.Text = fullName;
@@ -205,7 +212,16 @@ namespace DZHotelRoom
 
         private void ViewButton_Click(object sender, EventArgs e)
         {
-
+            if (idRoom== null)
+            {
+                MessageBox.Show("¬ыберите комнату и повторите попытку");
+            }
+            else
+            {
+                var viewform = new ViewForm(idRoom);
+                viewform.Show();
+            }
+            
         }
     }
 }
