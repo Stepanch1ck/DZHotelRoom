@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design.Serialization;
+﻿
 using Microsoft.EntityFrameworkCore;
 
-namespace DZHotelRoom;
+namespace DZHotelRoom.DBconnect;
 
 public partial class HotelRoomContext : DbContext
 {
@@ -69,5 +67,5 @@ public partial class HotelRoomContext : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-    
+
 }

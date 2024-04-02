@@ -87,6 +87,7 @@
             // 
             // PhotoBox
             // 
+            PhotoBox.BackColor = Color.Gray;
             PhotoBox.BorderStyle = BorderStyle.FixedSingle;
             PhotoBox.Location = new Point(59, 44);
             PhotoBox.Margin = new Padding(4, 3, 4, 3);
@@ -99,7 +100,7 @@
             // StatusLabel
             // 
             StatusLabel.AutoSize = true;
-            StatusLabel.ForeColor = SystemColors.ControlLightLight;
+            StatusLabel.ForeColor = SystemColors.ControlLight;
             StatusLabel.Location = new Point(4, 10);
             StatusLabel.Margin = new Padding(4, 0, 4, 0);
             StatusLabel.Name = "StatusLabel";
@@ -110,6 +111,7 @@
             // FioLabel
             // 
             FioLabel.AutoSize = true;
+            FioLabel.ForeColor = SystemColors.ControlLight;
             FioLabel.Location = new Point(4, 12);
             FioLabel.Margin = new Padding(4, 0, 4, 0);
             FioLabel.Name = "FioLabel";
@@ -149,6 +151,7 @@
             // 
             // FioPanel
             // 
+            FioPanel.BackColor = Color.Gray;
             FioPanel.BorderStyle = BorderStyle.FixedSingle;
             FioPanel.Controls.Add(FIOPersonLabel);
             FioPanel.Controls.Add(FioLabel);
@@ -168,6 +171,7 @@
             // 
             // StatusPanel
             // 
+            StatusPanel.BackColor = Color.Gray;
             StatusPanel.BorderStyle = BorderStyle.FixedSingle;
             StatusPanel.Controls.Add(StatusPersonLabel);
             StatusPanel.Controls.Add(StatusLabel);
@@ -187,6 +191,7 @@
             // 
             // ReleaseDatePanel
             // 
+            ReleaseDatePanel.BackColor = Color.Gray;
             ReleaseDatePanel.BorderStyle = BorderStyle.FixedSingle;
             ReleaseDatePanel.Controls.Add(ReleasePersonLabel);
             ReleaseDatePanel.Controls.Add(ReleaseDateLabel);
@@ -207,6 +212,7 @@
             // ReleaseDateLabel
             // 
             ReleaseDateLabel.AutoSize = true;
+            ReleaseDateLabel.ForeColor = SystemColors.ControlLight;
             ReleaseDateLabel.Location = new Point(0, 0);
             ReleaseDateLabel.Margin = new Padding(4, 0, 4, 0);
             ReleaseDateLabel.Name = "ReleaseDateLabel";
@@ -216,6 +222,7 @@
             // 
             // ArrivalDatePanel
             // 
+            ArrivalDatePanel.BackColor = Color.Gray;
             ArrivalDatePanel.BorderStyle = BorderStyle.FixedSingle;
             ArrivalDatePanel.Controls.Add(ArrivalPersonLabel);
             ArrivalDatePanel.Controls.Add(ArrivalDateLabel);
@@ -236,6 +243,7 @@
             // ArrivalDateLabel
             // 
             ArrivalDateLabel.AutoSize = true;
+            ArrivalDateLabel.ForeColor = SystemColors.ControlLight;
             ArrivalDateLabel.Location = new Point(0, 0);
             ArrivalDateLabel.Margin = new Padding(4, 0, 4, 0);
             ArrivalDateLabel.Name = "ArrivalDateLabel";
@@ -363,7 +371,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Black;
+            panel1.BackColor = SystemColors.ControlDark;
             panel1.Controls.Add(pictureBox);
             panel1.Controls.Add(LabelTime);
             panel1.Controls.Add(SearchBox);
@@ -400,7 +408,7 @@
             // 
             CentralPanel.BackColor = SystemColors.ControlDark;
             CentralPanel.Controls.Add(MainDataGridView);
-            CentralPanel.Location = new Point(240, 50);
+            CentralPanel.Location = new Point(240, 54);
             CentralPanel.Margin = new Padding(4, 3, 4, 3);
             CentralPanel.Name = "CentralPanel";
             CentralPanel.Size = new Size(406, 476);
@@ -414,7 +422,7 @@
             MainDataGridView.Location = new Point(0, 0);
             MainDataGridView.Margin = new Padding(4, 3, 4, 3);
             MainDataGridView.Name = "MainDataGridView";
-            MainDataGridView.Size = new Size(404, 470);
+            MainDataGridView.Size = new Size(404, 467);
             MainDataGridView.TabIndex = 0;
             MainDataGridView.CellMouseDoubleClick += MainDataGridView_CellMouseDoubleClick;
             // 
@@ -466,7 +474,7 @@
         private System.Windows.Forms.Label FioLabel;
         private System.Windows.Forms.Panel PanelRight;
         private System.Windows.Forms.Panel PanelLeft;
-        private System.Windows.Forms.TextBox SearchBox;
+        public System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Label SatusLabel;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.RadioButton CheckoutRadioButton;

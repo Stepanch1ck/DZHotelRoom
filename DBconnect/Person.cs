@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace DZHotelRoom;
+﻿namespace DZHotelRoom.DBconnect;
 
 public partial class Person
 {
