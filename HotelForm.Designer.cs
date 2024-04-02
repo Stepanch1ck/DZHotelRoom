@@ -34,6 +34,7 @@
             StatusLabel = new Label();
             FioLabel = new Label();
             PanelRight = new Panel();
+            NumberLabel = new Label();
             FioPanel = new Panel();
             FIOPersonLabel = new Label();
             StatusPanel = new Panel();
@@ -86,6 +87,7 @@
             // 
             // PhotoBox
             // 
+            PhotoBox.BorderStyle = BorderStyle.FixedSingle;
             PhotoBox.Location = new Point(59, 44);
             PhotoBox.Margin = new Padding(4, 3, 4, 3);
             PhotoBox.Name = "PhotoBox";
@@ -118,6 +120,7 @@
             // PanelRight
             // 
             PanelRight.BackColor = SystemColors.ControlDarkDark;
+            PanelRight.Controls.Add(NumberLabel);
             PanelRight.Controls.Add(FioPanel);
             PanelRight.Controls.Add(StatusPanel);
             PanelRight.Controls.Add(ReleaseDatePanel);
@@ -132,6 +135,17 @@
             PanelRight.Name = "PanelRight";
             PanelRight.Size = new Size(290, 476);
             PanelRight.TabIndex = 6;
+            // 
+            // NumberLabel
+            // 
+            NumberLabel.AutoSize = true;
+            NumberLabel.Font = new Font("Comic Sans MS", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            NumberLabel.ForeColor = SystemColors.ControlLight;
+            NumberLabel.Location = new Point(147, 11);
+            NumberLabel.Margin = new Padding(4, 0, 4, 0);
+            NumberLabel.Name = "NumberLabel";
+            NumberLabel.Size = new Size(0, 30);
+            NumberLabel.TabIndex = 10;
             // 
             // FioPanel
             // 
@@ -149,9 +163,8 @@
             FIOPersonLabel.AutoSize = true;
             FIOPersonLabel.Location = new Point(65, 12);
             FIOPersonLabel.Name = "FIOPersonLabel";
-            FIOPersonLabel.Size = new Size(39, 17);
+            FIOPersonLabel.Size = new Size(0, 17);
             FIOPersonLabel.TabIndex = 5;
-            FIOPersonLabel.Text = "label1";
             // 
             // StatusPanel
             // 
@@ -169,9 +182,8 @@
             StatusPersonLabel.AutoSize = true;
             StatusPersonLabel.Location = new Point(65, 10);
             StatusPersonLabel.Name = "StatusPersonLabel";
-            StatusPersonLabel.Size = new Size(39, 17);
+            StatusPersonLabel.Size = new Size(0, 17);
             StatusPersonLabel.TabIndex = 4;
-            StatusPersonLabel.Text = "label1";
             // 
             // ReleaseDatePanel
             // 
@@ -189,9 +201,8 @@
             ReleasePersonLabel.AutoSize = true;
             ReleasePersonLabel.Location = new Point(61, 14);
             ReleasePersonLabel.Name = "ReleasePersonLabel";
-            ReleasePersonLabel.Size = new Size(39, 17);
+            ReleasePersonLabel.Size = new Size(0, 17);
             ReleasePersonLabel.TabIndex = 5;
-            ReleasePersonLabel.Text = "label1";
             // 
             // ReleaseDateLabel
             // 
@@ -219,9 +230,8 @@
             ArrivalPersonLabel.AutoSize = true;
             ArrivalPersonLabel.Location = new Point(59, 15);
             ArrivalPersonLabel.Name = "ArrivalPersonLabel";
-            ArrivalPersonLabel.Size = new Size(39, 17);
+            ArrivalPersonLabel.Size = new Size(0, 17);
             ArrivalPersonLabel.TabIndex = 5;
-            ArrivalPersonLabel.Text = "label1";
             // 
             // ArrivalDateLabel
             // 
@@ -243,6 +253,7 @@
             ViewButton.TabIndex = 5;
             ViewButton.Text = "Просмотр карточки";
             ViewButton.UseVisualStyleBackColor = false;
+            ViewButton.Click += ViewButton_Click;
             // 
             // PanelLeft
             // 
@@ -257,7 +268,7 @@
             PanelLeft.Location = new Point(1, 47);
             PanelLeft.Margin = new Padding(4, 3, 4, 3);
             PanelLeft.Name = "PanelLeft";
-            PanelLeft.Size = new Size(243, 468);
+            PanelLeft.Size = new Size(243, 476);
             PanelLeft.TabIndex = 7;
             // 
             // CheckoutRadioButton
@@ -422,6 +433,7 @@
             Controls.Add(PanelLeft);
             Controls.Add(PanelRight);
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
             Name = "HotelForm";
             Text = "HotelForm";
             FormClosed += HotelForm_FormClosing;
@@ -478,5 +490,6 @@
         private Label ArrivalPersonLabel;
         private System.Windows.Forms.Timer Timer;
         private PictureBox pictureBox;
+        private Label NumberLabel;
     }
 }

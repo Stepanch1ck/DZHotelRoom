@@ -174,6 +174,7 @@ namespace DZHotelRoom
 
                 if (selectedRoom != null)
                 {
+                    NumberLabel.Text = roomId.ToString();
                     string fullName = $"{selectedRoom.PersonNavigation?.LastName} {selectedRoom.PersonNavigation?.FirstName} {selectedRoom.PersonNavigation?.Surname}";
                     StatusPersonLabel.Text = selectedRoom.Status;
                     FIOPersonLabel.Text = fullName;
@@ -186,7 +187,7 @@ namespace DZHotelRoom
                     }
 
                     ArrivalPersonLabel.Text = selectedRoom.PersonNavigation?.ArrivalDate.ToString("yyyy-MM-dd");
-                    ReleasePersonLabel.Text = selectedRoom.PersonNavigation?.ReleaseDate.ToString("yyyy-MM-dd"); 
+                    ReleasePersonLabel.Text = selectedRoom.PersonNavigation?.ReleaseDate.ToString("yyyy-MM-dd");
                 }
             }
         }
@@ -200,6 +201,11 @@ namespace DZHotelRoom
                 room.Person = null;
             }
             db.SaveChanges();
+        }
+
+        private void ViewButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
