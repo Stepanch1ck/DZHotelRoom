@@ -169,7 +169,7 @@ namespace DZHotelRoom
             }
         }
 
-        private void ReservedRadioButton_CheckedChanged(object sender, EventArgs e)
+        public void ReservedRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (ReservedRadioButton.Checked)
             {
@@ -249,7 +249,7 @@ namespace DZHotelRoom
             Logger.Info("HotelForm закрывается.");
         }
 
-        private void ViewButton_Click(object sender, EventArgs e)
+        public void ViewButton_Click(object sender, EventArgs e)
         {
             Logger.Info("ViewButton нажата.");
             if (idRoom== null)
