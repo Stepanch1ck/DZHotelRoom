@@ -5,11 +5,6 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DZHotelRoom", "DZHotelRoom.csproj", "{E72F3272-B18B-4542-87B8-4960F05F570E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logs", "Logs", "{AFE32B84-D0EE-4628-9CFF-CADC3624F8BF}"
-	ProjectSection(SolutionItems) = preProject
-		file.txt = file.txt
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectHotel", "..\TestProject1\TestProjectHotel.csproj", "{3742D58E-A7C9-459D-894F-5D3B1D5CD3C5}"
 EndProject
 Global

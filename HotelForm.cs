@@ -9,7 +9,7 @@ namespace DZHotelRoom
     {
         HotelRoomContext db = new HotelRoomContext();
         public int? idRoom = null;
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static Logger Logger = LogManager.GetCurrentClassLogger();
 
         public HotelForm()
         {
@@ -69,7 +69,7 @@ namespace DZHotelRoom
             }
         }
 
-        private void FilterAndDisplayRooms(string status)
+        public void FilterAndDisplayRooms(string status)
         {
             var filteredRooms = db.Rooms.Where(r => r.Status == status).ToList();
             MainDataGridView.DataSource = filteredRooms;
@@ -92,7 +92,7 @@ namespace DZHotelRoom
             
 
         }
-        private void LoadAllRoomsIntoDataGridView()
+        public void LoadAllRoomsIntoDataGridView()
         {
 
             var allRooms = db.Rooms.ToList();

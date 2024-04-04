@@ -7,8 +7,9 @@ public partial class HotelRoomContext : DbContext
 {
     public HotelRoomContext()
     {
-        Database.EnsureCreated();
+
     }
+
 
     public HotelRoomContext(DbContextOptions<HotelRoomContext> options)
         : base(options)

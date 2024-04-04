@@ -7,7 +7,7 @@ namespace DZHotelRoom
 {
     public partial class ViewForm : Form
     {
-        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+        private static Logger Logger = LogManager.GetCurrentClassLogger();
         HotelRoomContext db = new HotelRoomContext();
         public int? idroom = null;
         public ViewForm(int? idroom)
